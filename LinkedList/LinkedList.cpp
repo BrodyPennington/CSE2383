@@ -3,10 +3,28 @@
 
 LinkedList::~LinkedList() {
 
+    Node* tmp = head, *rmv;
+
+    while (tmp != nullptr) {
+        rmv = tmp;
+        tmp = tmp->next;
+        delete rmv;
+    }
+
+    head = nullptr;
+    tail = nullptr;
+    
 }
 
 LinkedList::LinkedList(const LinkedList& ll) {
+    Node* tmp = ll, head;
+    head = nullptr;
+    tail = nullptr;
 
+    while(tmp != nullptr) {
+        append(tmp->data);
+        tmp = tmp->next;
+    }
 }
 
 bool LinkedList::append(int val) {
@@ -58,5 +76,5 @@ std::ostream &operator<<(std::ostream& os, LinkedList& ll) {
 }
 
 int main() {
-    
+
 }
