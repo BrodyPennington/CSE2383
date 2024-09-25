@@ -1,3 +1,0 @@
-C:/Users/brody/Desktop/CSE-2383/TestProg/cmake-build-debug/CMakeFiles/test.dir
-C:/Users/brody/Desktop/CSE-2383/TestProg/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/brody/Desktop/CSE-2383/TestProg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
