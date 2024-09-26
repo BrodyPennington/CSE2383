@@ -33,5 +33,5 @@ int main() {
     LL.display( std::cout );
     LL.tailRemove("manage");
     // data structures efficiently large amounts of
-    LL.display(std::cout)
+    LL.display(std::cout);
 }
