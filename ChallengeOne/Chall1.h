@@ -1,15 +1,15 @@
 #include <iostream>
-
+#include <string>
 
 class Node {        
     public:
-        int data;
+        std::string data;
         Node *next;
 
         Node() : data(0), next(nullptr) {}
-        Node(int data) : data(data), next(nullptr) {}
-        Node(int data, Node *next) : data(data), next(next) {}
-}
+        Node(std::string data) : data(data), next(nullptr) {}
+        Node(std::string data, Node *next) : data(data), next(next) {}
+};
 
 class LinkedList {
     private:
@@ -22,10 +22,12 @@ class LinkedList {
         
         LinkedList(const LinkedList &LL);
 
-        void append(int &data);
-        void prepend(int &data);
-        void search(int &data);
-        void remove(int &data);
-        void display();
+        void append(std::string data);
+        void prepend(std::string data);
+        bool search(std::string data);
+        bool remove(std::string data);
+        void display(std::ostream& os);
 
-}
+        friend std::ostream &operator<<(std::ostream& os, LinkedList& LL);
+
+};
