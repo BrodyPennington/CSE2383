@@ -19,6 +19,7 @@ LinkedList::~LinkedList() {
 
 void LinkedList::append(std::string data) {
     Node *tmp = new Node(data); // creates new node
+    tmp->prev = tail; // set tmp's previous to the current tail
 
     if (head == nullptr) { // check if list is empty
         head = tmp; // if it is, set head to new node
@@ -31,12 +32,13 @@ void LinkedList::append(std::string data) {
 
 void LinkedList::prepend(std::string data) {
     Node *tmp = new Node(data); // create new node
- 
+    tmp->next = head; // set tmp's next to current head
+
     if (head == nullptr) { // check if list is empty
         tail = tmp; // if empty, set tail to new node
+    } else {
+        head->prev = tmp; // set head's next to the new node
     }
-
-    tmp->next = head; // set tmp's next to current head
 
     head = tmp; // set head to new node
 }
@@ -61,17 +63,30 @@ bool LinkedList::remove(std::string data) {
 
     while(tmp != nullptr) {
 
-        if (tmp->data == data) {
-            prv->next = tmp->next;
+        if (tmp->data == data) { // if data is stored in the current node, delete
+
+            if (tmp->prev != nullptr) {
+                tmp->prev->next = tmp->next;
+            }
+            
+            if (tmp->next != nullptr) { // check to see if next pointer exists
+                tmp->next->prev = tmp->prev;
+            }
+
+            if (tmp == head) { // check to see if current node is head
+                head = tmp->next;
+            }
+            
+            if (tmp == tail) { // check to see if current node is tail
+                tail = tmp->prev;
+            }
 
             delete tmp;
             return true;
+            
         }
-
-        prv = tmp;
         tmp = tmp->next;
     }
-
     return false; 
 }
 

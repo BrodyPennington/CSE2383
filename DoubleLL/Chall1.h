@@ -5,10 +5,11 @@ class Node {
     public:
         std::string data;
         Node *next;
+        Node* prev;
 
-        Node() : data(0), next(nullptr) {}
-        Node(std::string data) : data(data), next(nullptr) {}
-        Node(std::string data, Node *next) : data(data), next(next) {}
+        Node() : data(0), next(nullptr), prev(nullptr) {}
+        Node(std::string data) : data(data), next(nullptr), prev(nullptr) {}
+        Node(std::string data, Node *next) : data(data), next(next), prev(prev) {}
 };
 
 class LinkedList {
