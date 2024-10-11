@@ -17,4 +17,13 @@ int main() {
     b.inorder(std::cout);
     std::cout << std::endl;
 
-}
+    b.postorder(std::cout);
+    std::cout << std::endl;
+
+    b.preorder(std::cout);
+    std::cout << std::endl;
+
+    b.remove(5);
+    b.postorder(std::cout);
+    std::cout << std::endl;
+}   
